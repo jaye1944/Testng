@@ -1,23 +1,31 @@
 package com.power.mock;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.mockito.Mockito.verify;
 import static org.mockito.Matchers.anyString;
 
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.testng.annotations.BeforeTest;
 
 import static org.powermock.api.mockito.PowerMockito.when;
 import static org.powermock.api.mockito.PowerMockito.mock;
+
+
+//Before
+import org.testng.annotations.BeforeTest;
+//import org.junit.Before;
+
+//Test
+import org.testng.annotations.Test;
+//import org.junit.Test;
+
+//Assert
+import org.testng.Assert;
+//import org.junit.Assert;
 
 import com.power.mok.Adder;
 import com.power.mok.AdderFactory;
@@ -28,9 +36,9 @@ public class AdderFactoryUnitTest {
 	@InjectMocks
 	private AdderFactory adderFactory;
 	
-	//@Mock
-	//private Adder adder ;
-	final Adder adder = PowerMockito.mock(Adder.class);
+//	@Mock
+//	private Adder adder ;
+	private Adder adder = PowerMockito.mock(Adder.class);
 	
 	@BeforeTest
 	public void setUp() throws Exception {
@@ -39,28 +47,24 @@ public class AdderFactoryUnitTest {
 	
 	@Test
 	public void testgetFourAdder(){
-		String actual = "memememe";
-		String actual2 = "meme";
+		String actual = "meme";
 		String halfActual = "meme";
-		
-		//not final
-//		when(adder.getTwoName(anyString())).thenReturn(halfActual);
 		
 //		//final
 		when(adder.getTwoName()).thenReturn(halfActual);
 		
 		String expected = adderFactory.getFourName();
 		
-		String mockResult = adder.getTwoName();
-		System.out.println(adder.getClass().toString());
-		System.out.println(mockResult);
-		System.out.println(expected);
+		String mockResult = adder.getTwoName();		
+		//System.out.println(adder.getClass().toString());
+		System.out.println("mock result - "+mockResult);
+		System.out.println("expected - "+ expected);
 		
-		//not final
-		//Assert.assertEquals(expected,actual2);
-		
-//		//final
+//		//Testng 
 		Assert.assertEquals(expected,actual);
+		//junit
+		
+		
 		
 	}
 

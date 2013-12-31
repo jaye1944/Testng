@@ -14,10 +14,11 @@ public class Adder {
 	public  void setName(String name) {
 		this.name = name;
 	}
-	//mocked method 2
+	//mocked final method
 	public final String getTwoName() {
 		String fourNames = getName() + getName();
-		System.out.println("Out put "+fourNames);
+		System.out.println("mock is not correct ");
+		//System.out.println("Out put "+fourNames);
 		return fourNames;
 	}
 
