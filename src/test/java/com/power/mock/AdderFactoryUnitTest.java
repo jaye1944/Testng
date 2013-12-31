@@ -47,22 +47,26 @@ public class AdderFactoryUnitTest {
 	
 	@Test
 	public void testgetFourAdder(){
-		String actual = "meme";
+		String expected = "meme";
 		String halfActual = "meme";
 		
 //		//final
 		when(adder.getTwoName()).thenReturn(halfActual);
 		
-		String expected = adderFactory.getFourName();
+		String actual = adderFactory.getFourName();
 		
 		String mockResult = adder.getTwoName();		
 		//System.out.println(adder.getClass().toString());
 		System.out.println("mock result - "+mockResult);
 		System.out.println("expected - "+ expected);
 		
-//		//Testng 
+		//Junit		
+		try{
 		Assert.assertEquals(expected,actual);
-		//junit		
+		}catch(AssertionError e){
+			System.out.println(e);
+		}
+		
 	}
 
 }
