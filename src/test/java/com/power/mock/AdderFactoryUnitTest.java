@@ -28,11 +28,11 @@ public class AdderFactoryUnitTest {
 	@InjectMocks
 	private AdderFactory adderFactory;
 	
-	//@Mock
-	//final Adder adder = mock(Adder.class);
-	final Adder adder = PowerMockito.mock(Adder.class);
+	@Mock
+	private Adder adder ;
+	//final Adder adder = PowerMockito.mock(Adder.class);
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 	}
@@ -44,18 +44,23 @@ public class AdderFactoryUnitTest {
 		String halfActual = "meme";
 		
 		//not final
-		when(adder.getTwoName(anyString())).thenReturn(halfActual);
-		
-//		//final
 //		when(adder.getTwoName(anyString())).thenReturn(halfActual);
 		
-		String expected = adderFactory.getFourAdder("abcdefg");
+//		//final
+		when(adder.getTwoName()).thenReturn(halfActual);
+		
+		String expected = adderFactory.getFourName();
+		
+		String mockResult = adder.getTwoName();
+		System.out.println(adder.getClass().toString());
+		System.out.println(mockResult);
 		System.out.println(expected);
+		
 		//not final
-		Assert.assertEquals(expected,actual2);
+		//Assert.assertEquals(expected,actual2);
 		
 //		//final
-//		Assert.assertEquals(expected,actual);
+		Assert.assertEquals(expected,actual);
 		
 	}
 

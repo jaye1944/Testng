@@ -16,9 +16,9 @@ public class Adder {
 		this.name = name;
 	}
 	//mocked method 2
-	public  String getTwoName(String in) {
-		String out = getName()+getName();
-		return out;
+	public final String getTwoName() {
+		String fourNames = getName()+getName();
+		return fourNames;
 	}
 
 }

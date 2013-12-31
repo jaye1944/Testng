@@ -1,19 +1,22 @@
 package com.power.mok;
 
-public class AdderFactory {
-	private Adder adder;
+import com.power.help.AbstractAdderFactoryHelper;
+
+public class AdderFactory extends AbstractAdderFactoryHelper {
 	
-	public AdderFactory(){
-		adder = new Adder();
+	public AdderFactory (){
+		createAdder();
 	}
 	
-	public void setFourName(String word){
-		
+	public void setFourName(String name){
+		setName(name);
 	}
 	
-	public String getFourAdder(String word){
-		adder.setName(word);
-		return adder.getTwoName(word);	
+	public String getFourName(){
+		//adder.setName(word);
+		String resultFromHelper = getTwoNames();
+		return resultFromHelper;	
 	}
+
 
 }
