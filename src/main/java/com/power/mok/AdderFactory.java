@@ -13,7 +13,7 @@ public class AdderFactory {
 	
 	public String getFourAdder(String word){
 		adder.setName(word);
-		return adder.getTwoName();	
+		return adder.getTwoName(word);	
 	}
 
 }

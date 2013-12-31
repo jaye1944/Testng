@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Matchers.anyString;
 
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -38,15 +39,23 @@ public class AdderFactoryUnitTest {
 	
 	@Test
 	public void testgetFourAdder(){
-		//AdderFactory adderFactory = new AdderFactory();
 		String actual = "memememe";
-		String halfActual = "memememe";
-		//when(adder.getName()).thenReturn(halfActual);
-		when(adder.getTwoName()).thenReturn(halfActual);
-	//	when(adder.setName("apple"))
+		String actual2 = "meme";
+		String halfActual = "meme";
+		
+		//not final
+		when(adder.getTwoName(anyString())).thenReturn(halfActual);
+		
+//		//final
+//		when(adder.getTwoName(anyString())).thenReturn(halfActual);
+		
 		String expected = adderFactory.getFourAdder("abcdefg");
 		System.out.println(expected);
-		Assert.assertEquals(expected,actual);
+		//not final
+		Assert.assertEquals(expected,actual2);
+		
+//		//final
+//		Assert.assertEquals(expected,actual);
 		
 	}
 
