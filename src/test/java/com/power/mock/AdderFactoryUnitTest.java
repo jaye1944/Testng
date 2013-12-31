@@ -47,13 +47,13 @@ public class AdderFactoryUnitTest {
 	
 	@Test
 	public void testgetFourAdder(){
-		String actual = "meme";
+		String expected = "meme";
 		String halfActual = "meme";
 		
 //		//final
 		when(adder.getTwoName()).thenReturn(halfActual);
 		
-		String expected = adderFactory.getFourName();
+		String actual = adderFactory.getFourName();
 		
 		String mockResult = adder.getTwoName();		
 		//System.out.println(adder.getClass().toString());
