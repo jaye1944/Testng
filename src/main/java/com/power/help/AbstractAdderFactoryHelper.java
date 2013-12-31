@@ -12,6 +12,10 @@ public abstract class AbstractAdderFactoryHelper {
 		return adder.getTwoName();
 	}
 	
+	protected String getStaticString(){
+		return Adder.rString();
+	}
+	
 	protected void setName(String name){
 		adder.setName(name);
 	}
