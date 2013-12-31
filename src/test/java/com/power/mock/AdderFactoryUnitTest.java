@@ -16,16 +16,16 @@ import static org.powermock.api.mockito.PowerMockito.mock;
 
 
 //Before
-import org.testng.annotations.BeforeTest;
-//import org.junit.Before;
+//import org.testng.annotations.BeforeTest;
+import org.junit.Before;
 
 //Test
-import org.testng.annotations.Test;
-//import org.junit.Test;
+//import org.testng.annotations.Test;
+import org.junit.Test;
 
 //Assert
-import org.testng.Assert;
-//import org.junit.Assert;
+//import org.testng.Assert;
+import org.junit.Assert;
 
 import com.power.mok.Adder;
 import com.power.mok.AdderFactory;
@@ -40,7 +40,7 @@ public class AdderFactoryUnitTest {
 //	private Adder adder ;
 	private Adder adder = PowerMockito.mock(Adder.class);
 	
-	@BeforeTest
+	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 	}
@@ -62,10 +62,7 @@ public class AdderFactoryUnitTest {
 		
 //		//Testng 
 		Assert.assertEquals(expected,actual);
-		//junit
-		
-		
-		
+		//junit		
 	}
 
 }
