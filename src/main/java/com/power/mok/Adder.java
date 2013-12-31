@@ -7,7 +7,6 @@ public class Adder {
 		
 	}
 	
-	//mocked method 1
 	public  String getName() {
 		return name+name;
 	}
@@ -17,7 +16,8 @@ public class Adder {
 	}
 	//mocked method 2
 	public final String getTwoName() {
-		String fourNames = getName()+getName();
+		String fourNames = getName() + getName();
+		System.out.println("Out put "+fourNames);
 		return fourNames;
 	}
 

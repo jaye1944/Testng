@@ -28,9 +28,9 @@ public class AdderFactoryUnitTest {
 	@InjectMocks
 	private AdderFactory adderFactory;
 	
-	@Mock
-	private Adder adder ;
-	//final Adder adder = PowerMockito.mock(Adder.class);
+	//@Mock
+	//private Adder adder ;
+	final Adder adder = PowerMockito.mock(Adder.class);
 	
 	@BeforeTest
 	public void setUp() throws Exception {
