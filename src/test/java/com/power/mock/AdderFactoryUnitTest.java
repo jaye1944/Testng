@@ -15,10 +15,12 @@ import static org.powermock.api.mockito.PowerMockito.when;
 import static org.powermock.api.mockito.PowerMockito.mock;
 
 
+
 //Before
 import org.testng.annotations.BeforeTest;
 //import org.junit.Before;
 
+import org.testng.annotations.ObjectFactory;
 //Test
 import org.testng.annotations.Test;
 //import org.junit.Test;
@@ -27,14 +29,21 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 //import org.junit.Assert;
 
+import org.testng.IObjectFactory;
+
 import com.power.mok.Adder;
 import com.power.mok.AdderFactory;
 
-@RunWith(PowerMockRunner.class)
+//@RunWith(PowerMockRunner.class)
 @PrepareForTest(Adder.class)
 public class AdderFactoryUnitTest {
 	@InjectMocks
 	private AdderFactory adderFactory;
+	
+	@ObjectFactory
+	public IObjectFactory getObjectFactory() {
+		return new org.powermock.modules.testng.PowerMockObjectFactory();
+	}
 	
 //	@Mock
 //	private Adder adder ;
