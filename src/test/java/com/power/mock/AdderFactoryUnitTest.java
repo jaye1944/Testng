@@ -1,6 +1,5 @@
 package com.power.mock;
 
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -9,10 +8,11 @@ import static org.mockito.Matchers.anyString;
 
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.modules.testng.PowerMockTestCase;
 
 import static org.powermock.api.mockito.PowerMockito.when;
 import static org.powermock.api.mockito.PowerMockito.mock;
+
 
 
 
@@ -36,7 +36,8 @@ import com.power.mok.AdderFactory;
 
 //@RunWith(PowerMockRunner.class)
 @PrepareForTest(Adder.class)
-public class AdderFactoryUnitTest {
+public class AdderFactoryUnitTest  {
+	
 	@InjectMocks
 	private AdderFactory adderFactory;
 	
@@ -55,7 +56,7 @@ public class AdderFactoryUnitTest {
 	}
 	
 	@Test
-	public void testgetFourAdder(){
+	public void testgetFourAdder() throws Exception{
 		String expected = "meme";
 		String halfActual = "meme";
 		
