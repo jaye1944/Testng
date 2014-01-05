@@ -2,6 +2,7 @@ package com.power.mock;
 
 import static org.powermock.api.mockito.PowerMockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
+import static org.powermock.api.mockito.PowerMockito.doReturn;
 
 import static org.mockito.Matchers.anyString;
 
@@ -21,43 +22,49 @@ import com.power.mok.AdderFactory;
 import com.power.mok.DpTest;
 
 @PrepareForTest(DpTest.class)
-public class AdderFactoryUnitTest{
+public class AdderFactoryUnitTest {
 	@InjectMocks
 	private AdderFactory adderFactory = new AdderFactory();
 	
-	//@Mock
-	//private Adder adder ;
-	//final Adder adder = PowerMockito.mock(Adder.class);
 	private DpTest dpTest = PowerMockito.mock(DpTest.class);
 	
 	@ObjectFactory
     public IObjectFactory getObjectFactory() {
             return new org.powermock.modules.testng.PowerMockObjectFactory();
     }
-	
-	
-	@BeforeTest
+		
+	@BeforeTest(alwaysRun = true)
 	public void setUp() throws Exception {
-		//mockStatic(Adder.class);
+		//dpTest = PowerMockito.mock(DpTest.class);
+		doReturn("mocked done!").when(dpTest,"getAll",anyString());
+		//when(dpTest.getAll(anyString())).thenReturn("lolo");
 		MockitoAnnotations.initMocks(this);
 	}
 	
 	@DataProvider(name = "test1")
-	public static Object[][] primeNumbers() {
+	public static Object[][] DptestData() {
 	        return new Object[][] { { 2, "true" }, { 6, "false" }, { 19, "true" },
 	        	{ 22, "false" }, { 23, "true" } };
+//	        return new Object[][] { { 2, "true" } };
 	}
 	
 	@Test(dataProvider = "test1")
 	public void testgetFourAdder(Integer number,String status) throws Exception{
+	
+		//mockStatic(DpTest.class);
+		
+//		String stringt = (String) status;
+//		Integer numt = (Integer)number;
 		dpTest.setNumber(number);
 		dpTest.setStstus(status);
 		
-		when(dpTest.getAll(anyString())).thenReturn("ok");
+//		when(dpTest.getAll(anyString())).thenReturn(stringt);
 		System.out.println(number);
 		System.out.println(status);
 		
 		System.out.println(dpTest.getAll("lol"));
+		System.out.println();
+
 //		String actual = "meme";
 //		String returnActual = "meme";
 //		mockStatic(Adder.class);	

@@ -27,7 +27,8 @@ public class DpTest {
 	}
 	
 	public final String getAll(String all){
-		return ststus + String.valueOf(number);
+		System.out.println("mock me");
+		return ststus +"  "+ String.valueOf(number);
 	}
 	
 	
