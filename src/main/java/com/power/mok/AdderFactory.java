@@ -17,6 +17,10 @@ public class AdderFactory extends AbstractAdderFactoryHelper {
 		String resultFromHelper = getTwoNames();
 		return resultFromHelper;	
 	}
+	
+	public String getStatic(){
+		return getStaticString();
+	}
 
 
 }
