@@ -1,6 +1,6 @@
 package com.power.mok;
 
-public final class Adder {
+public class Adder {
 	private String name;
 	
 	public Adder(){
