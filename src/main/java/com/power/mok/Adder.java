@@ -1,6 +1,6 @@
 package com.power.mok;
 
-public class Adder {
+public final class Adder {
 	private String name;
 	
 	public Adder(){
@@ -20,8 +20,8 @@ public class Adder {
 		return "I m from static method";
 	}
 	
-	//final method 
-	public final String getTwoName() {
+	//non final method 
+	public String getTwoName() {
 		String fourNames = getName() + getName();
 		System.out.println("Out put "+fourNames);
 		return fourNames;

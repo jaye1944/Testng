@@ -5,6 +5,7 @@ import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.testng.PowerMockTestCase;
 import org.testng.Assert;
@@ -19,13 +20,11 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 	@InjectMocks
 	private AdderFactory adderFactory = new AdderFactory();
 	
-	//@Mock
-	//private Adder adder ;
-	//final Adder adder = PowerMockito.mock(Adder.class);
+	private Adder adder ;
 	
 	@BeforeTest
 	public void setUp() throws Exception {
-		mockStatic(Adder.class);
+		adder = PowerMockito.mock(Adder.class);
 		MockitoAnnotations.initMocks(this);
 	}
 	
@@ -33,16 +32,25 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 	public void testgetFourAdder() throws Exception{
 		String actual = "meme";
 		String returnActual = "meme";
+		String nonStaticActual = "two names";
 		mockStatic(Adder.class);	
-		//PowerMockito.doReturn(returnActual).when(Adder.class,"rString");
 		when(Adder.rString()).thenReturn(returnActual);
-		String expectedToTest = adderFactory.getStatic();
+		when(adder.getTwoName()).thenReturn(nonStaticActual);
 		
-		String expected  = Adder.rString();
-		System.out.println(expected);
+		String expectedToTest = adderFactory.getStatic();		
+		String nonStaticExpected = adderFactory.getFourName();
 		
-//		//final
+		String staticExpectedFromMock  = Adder.rString();
+		System.out.println(staticExpectedFromMock);
+		
+		String nonStaticExpectedFromMock = adder.getTwoName();
+		System.out.println(nonStaticExpectedFromMock);
+		
+//		//static 
 		Assert.assertEquals(expectedToTest,actual);
+		
+		//non static 
+		Assert.assertEquals(nonStaticExpected,nonStaticActual);
 		
 	}
 
