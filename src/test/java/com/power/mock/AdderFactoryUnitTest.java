@@ -23,6 +23,7 @@ import com.power.mok.DpTest;
 
 @PrepareForTest(DpTest.class)
 public class AdderFactoryUnitTest {
+	//private int k = 0;
 	@InjectMocks
 	private AdderFactory adderFactory = new AdderFactory();
 	
@@ -36,7 +37,7 @@ public class AdderFactoryUnitTest {
 	@BeforeTest(alwaysRun = true)
 	public void setUp() throws Exception {
 		//dpTest = PowerMockito.mock(DpTest.class);
-		doReturn("mocked done!").when(dpTest,"getAll",anyString());
+		
 		//when(dpTest.getAll(anyString())).thenReturn("lolo");
 		MockitoAnnotations.initMocks(this);
 	}
@@ -50,21 +51,21 @@ public class AdderFactoryUnitTest {
 	
 	@Test(dataProvider = "test1")
 	public void testgetFourAdder(Integer number,String status) throws Exception{
-	
-		//mockStatic(DpTest.class);
-		
+		dpTest = PowerMockito.mock(DpTest.class);
+		//doReturn("mocked done!").when(dpTest,"getAll",anyString());
+		when(dpTest.getAll(anyString())).thenReturn("mocked done!");
 //		String stringt = (String) status;
 //		Integer numt = (Integer)number;
 		dpTest.setNumber(number);
 		dpTest.setStstus(status);
 		
-//		when(dpTest.getAll(anyString())).thenReturn(stringt);
 		System.out.println(number);
 		System.out.println(status);
 		
 		System.out.println(dpTest.getAll("lol"));
 		System.out.println();
-
+		
+		
 //		String actual = "meme";
 //		String returnActual = "meme";
 //		mockStatic(Adder.class);	
