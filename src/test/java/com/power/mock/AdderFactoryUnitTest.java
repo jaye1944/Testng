@@ -1,40 +1,20 @@
 package com.power.mock;
 
+import static org.powermock.api.mockito.PowerMockito.when;
+
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import static org.mockito.Matchers.anyString;
-
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.testng.PowerMockTestCase;
-
-import static org.powermock.api.mockito.PowerMockito.when;
-import static org.powermock.api.mockito.PowerMockito.mock;
-
-
-
-
-//Before
-import org.testng.annotations.BeforeTest;
-//import org.junit.Before;
-
-import org.testng.annotations.ObjectFactory;
-//Test
-import org.testng.annotations.Test;
-//import org.junit.Test;
-
-//Assert
 import org.testng.Assert;
-//import org.junit.Assert;
-
 import org.testng.IObjectFactory;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.ObjectFactory;
+import org.testng.annotations.Test;
 
 import com.power.mok.Adder;
 import com.power.mok.AdderFactory;
 
-//@RunWith(PowerMockRunner.class)
 @PrepareForTest(Adder.class)
 public class AdderFactoryUnitTest  {
 	
