@@ -20,6 +20,9 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 	@InjectMocks
 	private AdderFactory adderFactory = new AdderFactory();
 	
+	/*
+     * Adder.java final class with static and non-static method
+     */
 	private Adder adder ;
 	
 	@BeforeTest
@@ -30,9 +33,9 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 	
 	@Test
 	public void testgetFourAdder() throws Exception{
-		String actual = "meme";
-		String returnActual = "meme";
-		String nonStaticActual = "two names";
+		String actual = "mock done succsefully in static";
+		String returnActual = "mock done succsefully in static";
+		String nonStaticActual = "mock done succsefully in non-static";
 		mockStatic(Adder.class);	
 		when(Adder.rString()).thenReturn(returnActual);
 		when(adder.getTwoName()).thenReturn(nonStaticActual);
@@ -46,7 +49,7 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 		String nonStaticExpectedFromMock = adder.getTwoName();
 		System.out.println(nonStaticExpectedFromMock);
 		
-//		//static 
+		//static 
 		Assert.assertEquals(expectedToTest,actual);
 		
 		//non static 
