@@ -1,20 +1,19 @@
 package com.power.mok;
 
 public class DpTest {
-	private String ststus;
+	private boolean ststus;
 	private int number;
 	
-	public DpTest(String ststus, int number) {
-		super();
-		this.ststus = ststus;
-		this.number = number;
+	public DpTest() {
+	//	super();
+
 	}
 
-	public String getStstus() {
+	public boolean getStstus() {
 		return ststus;
 	}
 
-	public void setStstus(String ststus) {
+	public void setStstus(boolean ststus) {
 		this.ststus = ststus;
 	}
 
@@ -26,9 +25,9 @@ public class DpTest {
 		this.number = number;
 	}
 	
-	public final String getAll(String all){
+	public final boolean getAll(){
 		System.out.println("mock me");
-		return ststus +"  "+ String.valueOf(number);
+		return ststus;
 	}
 	
 	
