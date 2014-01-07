@@ -46,8 +46,9 @@ public class AdderFactoryUnitTest  {
 		return new org.powermock.modules.testng.PowerMockObjectFactory();
 	}
 	
-//	@Mock
-//	private Adder adder ;
+	/*
+	 * Adder.java ordinary class with final method
+	 */
 	private Adder adder = PowerMockito.mock(Adder.class);
 	
 	@BeforeTest
@@ -57,11 +58,10 @@ public class AdderFactoryUnitTest  {
 	
 	@Test
 	public void testgetFourAdder() throws Exception{
-		String expected = "meme";
-		String halfActual = "meme";
+		String expected = "mock done succsefully";
+		String actualReturn = "mock done succsefully";
 		
-//		//final
-		when(adder.getTwoName()).thenReturn(halfActual);
+		when(adder.getTwoName()).thenReturn(actualReturn);
 		
 		String actual = adderFactory.getFourName();
 		
@@ -70,9 +70,8 @@ public class AdderFactoryUnitTest  {
 		System.out.println("mock result - "+mockResult);
 		System.out.println("expected - "+ expected);
 		
-//		//Testng 
+		//Testng 
 		Assert.assertEquals(expected,actual);
-		//junit
 		
 		
 		
