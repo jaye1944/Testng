@@ -19,20 +19,19 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 	@InjectMocks
 	private AdderFactory adderFactory = new AdderFactory();
 	
-	//@Mock
-	//private Adder adder ;
-	//final Adder adder = PowerMockito.mock(Adder.class);
-	
 	@BeforeTest
 	public void setUp() throws Exception {
+		/*
+		 * Adder.java ordinary class with static method
+		 */
 		mockStatic(Adder.class);
 		MockitoAnnotations.initMocks(this);
 	}
 	
 	@Test
 	public void testgetFourAdder() throws Exception{
-		String actual = "meme";
-		String returnActual = "meme";
+		String actual = "mock done succsefully";
+		String returnActual = "mock done succsefully";
 		mockStatic(Adder.class);	
 		//PowerMockito.doReturn(returnActual).when(Adder.class,"rString");
 		when(Adder.rString()).thenReturn(returnActual);
@@ -41,7 +40,6 @@ public class AdderFactoryUnitTest  extends PowerMockTestCase  {
 		String expected  = Adder.rString();
 		System.out.println(expected);
 		
-//		//final
 		Assert.assertEquals(expectedToTest,actual);
 		
 	}
